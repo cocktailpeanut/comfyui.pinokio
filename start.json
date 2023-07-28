@@ -1,0 +1,40 @@
+{
+  "run": [{
+    "method": "shell.start",
+    "params": {
+      "path": "ComfyUI"
+    }
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "message": "{{os.platform() === 'win32' ? 'env\\\\Scripts\\\\activate' : 'source env/bin/activate'}}",
+      "on": [{
+        "event": null,
+        "return": true
+      }]
+    }
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "message": "python main.py",
+      "on": [{
+        "event": "/(http:\/\/[0-9.:]+)/",
+        "return": "{{event.matches[0][1]}}"
+      }]
+    }
+  }, {
+    "method": "self.set",
+    "params": {
+      "session.json": {
+        "url": "{{input}}"
+      }
+    }
+  }, {
+    "method": "browser.open",
+    "params": {
+      "uri": "/?selected=ComfyUI"
+    }
+  }, {
+    "method": "process.wait" 
+  }]
+}
