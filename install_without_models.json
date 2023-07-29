@@ -48,18 +48,6 @@
       }]
     }
   }, {
-    "method": "fs.download",
-    "params": {
-      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors",
-      "path": "ComfyUI/models/checkpoints/sd_xl_base_1.0.safetensors"
-    }
-  }, {
-    "method": "fs.download",
-    "params": {
-      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors",
-      "path": "ComfyUI/models/checkpoints/sd_xl_refiner_1.0.safetensors"
-    }
-  }, {
     "method": "input",
     "params": {
       "title": "Install Success",
