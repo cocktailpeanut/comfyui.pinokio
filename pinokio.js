@@ -8,9 +8,6 @@ module.exports = {
   title: "ComfyUI",
   description: "A powerful and modular stable diffusion GUI with a graph/nodes interface.",
   icon: "icon.png",
-  update: async (kernel) => {
-    return "update.json"
-  },
   menu: async (kernel) => {
     let installed = await exists(path.resolve(__dirname, "ComfyUI", "env"))
     if (installed) {
