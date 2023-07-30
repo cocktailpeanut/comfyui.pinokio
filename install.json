@@ -12,7 +12,7 @@
   }, {
     "method": "shell.run",
     "params": {
-      "message": "python -m venv env",
+      "message": "{{os.platform === 'win32' ? 'python' : 'python3'}} -m venv env",
       "path": "ComfyUI"
     }
   }, {

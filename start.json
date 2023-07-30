@@ -16,7 +16,7 @@
   }, {
     "method": "shell.enter",
     "params": {
-      "message": "python main.py",
+      "message": "{{os.platform === 'win32' ? 'python' : 'python3'}} main.py",
       "on": [{
         "event": "/(http:\/\/[0-9.:]+)/",
         "return": "{{event.matches[0][1]}}"
