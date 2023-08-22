@@ -12,6 +12,12 @@
   }, {
     "method": "shell.run",
     "params": {
+      "message": "git clone https://github.com/ltdrdata/ComfyUI-Manager",
+      "path": "ComfyUI/custom_nodes"
+    }
+  }, {
+    "method": "shell.run",
+    "params": {
       "message": "{{os.platform() === 'win32' ? 'python' : 'python3'}} -m venv env",
       "path": "ComfyUI"
     }
