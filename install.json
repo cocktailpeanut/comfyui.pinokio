@@ -1,13 +1,8 @@
 {
-  "torch": {
-    "darwin": "pip install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu",
-    "linux": "{{ /amd/.test(system.graphics().controllers[0].vendorr) ? 'pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/rocm5.4.2' : 'pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118 xformers'}}",
-    "win32": "pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118 xformers"
-  },
   "run": [{
     "method": "shell.run",
     "params": {
-      "message": "git clone https://github.com/comfyanonymous/ComfyUI.git"
+      "message": "git clone https://github.com/cocktailpeanut/ComfyUI.git"
     }
   }, {
     "method": "shell.run",
@@ -38,7 +33,16 @@
   }, {
     "method": "shell.enter",
     "params": {
-      "message": "{{self.torch[os.platform()]}}",
+      "message": "npx --yes torchcraft@0.0.12",
+      "on": [{
+        "event": null,
+        "return": true
+      }]
+    }
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "message": "pip install -r torchcraft.txt",
       "on": [{
         "event": null,
         "return": true
