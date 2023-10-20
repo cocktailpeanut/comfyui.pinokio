@@ -2,7 +2,7 @@
   "run": [{
     "method": "shell.run",
     "params": {
-      "message": "git clone https://github.com/cocktailpeanut/ComfyUI.git"
+      "message": "git clone https://github.com/comfyanonymous/ComfyUI.git"
     }
   }, {
     "method": "shell.run",
@@ -33,7 +33,7 @@
   }, {
     "method": "shell.enter",
     "params": {
-      "message": "npx --yes torchcraft@0.0.12",
+      "message": "npx --yes torchcraft@0.0.15",
       "on": [{
         "event": null,
         "return": true

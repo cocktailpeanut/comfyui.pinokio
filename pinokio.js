@@ -30,6 +30,9 @@ module.exports = {
         when: "start.json",
         on: "<i class='fa-solid fa-desktop'></i> Server",
         href: "start.json?fullscreen=true"
+      }, {
+        html: "<i class='fa-solid fa-rotate'></i> Update",
+        href: "update.json?fullscreen=true&run=true"
 //      }, {
 //        html: "<i class='fa-solid fa-plug'></i> Reinstall",
 //        href: "install.js"
