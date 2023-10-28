@@ -2,7 +2,8 @@
   "run": [{
     "method": "shell.start",
     "params": {
-      "path": "ComfyUI"
+      "path": "ComfyUI",
+      "env": { "PYTORCH_MPS_HIGH_WATERMARK_RATIO": "0.0" }
     }
   }, {
     "method": "shell.enter",
