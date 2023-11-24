@@ -49,6 +49,14 @@ module.exports = {
           run: true,
           fullscreen: true
         }
+      }, {
+        text: "Download LCM LoRA",
+        icon: "fa-solid fa-download",
+        href: "download-lcm-lora.json",
+        params: {
+          run: true,
+          fullscreen: true
+        }
       }]
     } else {
       return [{
