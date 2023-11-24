@@ -13,49 +13,12 @@
   }, {
     "method": "shell.run",
     "params": {
-      "message": "{{os.platform() === 'win32' ? 'python' : 'python3'}} -m venv env",
-      "path": "ComfyUI"
-    }
-  }, {
-    "method": "shell.start",
-    "params": {
-      "path": "ComfyUI"
-    }
-  }, {
-    "method": "shell.enter",
-    "params": {
-      "message": "{{os.platform() === 'win32' ? 'env\\\\Scripts\\\\activate' : 'source env/bin/activate'}}",
-      "on": [{
-        "event": null,
-        "return": true
-      }]
-    }
-  }, {
-    "method": "shell.enter",
-    "params": {
-      "message": "npx --yes torchcraft@0.0.15",
-      "on": [{
-        "event": null,
-        "return": true
-      }]
-    }
-  }, {
-    "method": "shell.enter",
-    "params": {
-      "message": "pip install -r torchcraft.txt",
-      "on": [{
-        "event": null,
-        "return": true
-      }]
-    }
-  }, {
-    "method": "shell.enter",
-    "params": {
-      "message": "pip install -r requirements.txt",
-      "on": [{
-        "event": null,
-        "return": true
-      }]
+      "venv": "env",
+      "path": "ComfyUI",
+      "message": [
+        "{{pip.install.torch}}",
+        "pip install -r requirements.txt"
+      ]
     }
   }, {
     "method": "fs.download",
@@ -68,6 +31,19 @@
     "params": {
       "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors",
       "path": "ComfyUI/models/checkpoints/sd_xl_refiner_1.0.safetensors"
+    }
+  }, {
+    "method": "shell.run",
+    "params": {
+      "message": "mkdir workflows"
+    }
+  }, {
+    "method": "shell.run",
+    "params": {
+      "message": [
+        "git clone https://github.com/comfyanonymous/ComfyUI_examples"
+      ],
+      "path": "workflows"
     }
   }, {
     "method": "input",

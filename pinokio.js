@@ -33,22 +33,28 @@ module.exports = {
       }, {
         html: "<i class='fa-solid fa-rotate'></i> Update",
         href: "update.json?fullscreen=true&run=true"
-//      }, {
-//        html: "<i class='fa-solid fa-plug'></i> Reinstall",
-//        href: "install.js"
-//      }, {
-//        html: '<i class="fa-solid fa-gear"></i> Configure',
-//        href: (os.platform() === 'win32' ? "automatic1111/webui-user.bat#L6" : "automatic1111/webui-user.sh#L13")
+      }, {
+        text: "Download Stable Video XT Model",
+        icon: "fa-solid fa-download",
+        href: "download-svd-xt.json",
+        params: {
+          run: true,
+          fullscreen: true
+        }
+      }, {
+        text: "Download Stable Video Model",
+        icon: "fa-solid fa-download",
+        href: "download-svd.json",
+        params: {
+          run: true,
+          fullscreen: true
+        }
       }]
     } else {
       return [{
         html: '<i class="fa-solid fa-plug"></i> Install',
         type: "link",
         href: "install.json?run=true&fullscreen=true"
-//      }, {
-//        html: '<i class="fa-solid fa-gear"></i> Configure',
-//        type: "link",
-//        href: (os.platform() === 'win32' ? "automatic1111/webui-user.bat#L6" : "automatic1111/webui-user.sh#L13")
       }]
     }
   }
