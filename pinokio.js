@@ -6,7 +6,7 @@ const exists = (filepath) => {
 }
 module.exports = {
   title: "ComfyUI",
-  description: "A powerful and modular stable diffusion GUI with a graph/nodes interface.",
+  description: "Stable Diffusion & Stable Video Diffusion GUI (https://github.com/comfyanonymous/ComfyUI)",
   icon: "icon.png",
   menu: async (kernel) => {
     let installed = await exists(path.resolve(__dirname, "ComfyUI", "env"))
