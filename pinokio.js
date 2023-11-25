@@ -57,6 +57,13 @@ module.exports = {
           run: true,
           fullscreen: true
         }
+      }, {
+        text: "Launch in CPU Mode (Slow)",
+        href: "start_cpu.json",
+        params: {
+          run: true,
+          fullscreen: true
+        }
       }]
     } else {
       return [{

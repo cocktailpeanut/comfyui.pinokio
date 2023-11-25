@@ -7,7 +7,10 @@
   }, {
     "method": "shell.run",
     "params": {
-      "message": "git clone https://github.com/ltdrdata/ComfyUI-Manager",
+      "message": [
+        "git clone https://github.com/ltdrdata/ComfyUI-Manager",
+        "git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
+      ],
       "path": "ComfyUI/custom_nodes"
     }
   }, {
