@@ -18,6 +18,11 @@ module.exports = {
         type: "label",
         href: "start.json"
       }, {
+        when: "start_cpu.json",
+        on: "<i class='fa-solid fa-spin fa-circle-notch'></i> Running",
+        type: "label",
+        href: "start_cpu.json"
+      }, {
         when: "start.json",
         off: "<i class='fa-solid fa-power-off'></i> Launch",
         href: "start.json?fullscreen=true&run=true",
@@ -27,9 +32,18 @@ module.exports = {
         href: (session && session.url ? session.url : null),
         target: "_blank"
       }, {
+        when: "start_cpu.json",
+        on: (session && session.url ? "<i class='fa-solid fa-rocket'></i> Open Web UI" : null),
+        href: (session && session.url ? session.url : null),
+        target: "_blank"
+      }, {
         when: "start.json",
         on: "<i class='fa-solid fa-desktop'></i> Server",
         href: "start.json?fullscreen=true"
+      }, {
+        when: "start_cpu.json",
+        on: "<i class='fa-solid fa-desktop'></i> Server",
+        href: "start_cpu.json?fullscreen=true"
       }, {
         html: "<i class='fa-solid fa-rotate'></i> Update",
         href: "update.json?fullscreen=true&run=true"
