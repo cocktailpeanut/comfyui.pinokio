@@ -17,7 +17,7 @@ module.exports = {
       let running = cpu_running || gpu_running
 
 
-      let arr = []
+      let arr
 
       if (gpu_running) {
         arr = [{
