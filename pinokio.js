@@ -57,11 +57,12 @@ module.exports = {
         }
       } else {
         arr = [{
-          icon: "fa-solid fa-poweroff",
+          icon: "fa-solid fa-power-off",
           text: "Launch",
           href: "start.json",
           params: { fullscreen: true, run: true }
         }, {
+          icon: "fa-solid fa-power-off",
           text: "Launch CPU Mode (Slow)",
           href: "start_cpu.json",
           params: { fullscreen: true, run: true }
