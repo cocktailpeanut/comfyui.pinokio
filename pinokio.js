@@ -22,14 +22,12 @@ module.exports = {
       if (gpu_running) {
         arr = [{
           icon: "fa-solid fa-spin fa-circle-notch",
-          text: "Running",
-          href: "start.json"
+          text: "Running"
         }]
       } else if (cpu_running) {
         arr = [{
           icon: "fa-solid fa-spin fa-circle-notch",
-          text: "Running",
-          href: "start_cpu.json"
+          text: "Running"
         }]
       } else {
         arr = []
