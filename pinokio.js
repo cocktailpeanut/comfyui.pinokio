@@ -23,41 +23,56 @@ module.exports = {
         arr = [{
           icon: "fa-solid fa-spin fa-circle-notch",
           text: "Running"
+        }, {
+          icon: "fa-solid fa-desktop",
+          text: "Server",
+          href: "start.json",
+          params: { fullscreen: true }
         }]
+        if (session && session.url) {
+          arr.push({
+            icon: "fa-solid fa-rocket",
+            text: "Open Web UI",
+            href: session.url,
+            target: "_blank"
+          })
+        }
       } else if (cpu_running) {
         arr = [{
           icon: "fa-solid fa-spin fa-circle-notch",
           text: "Running"
+        }, {
+          icon: "fa-solid fa-desktop",
+          text: "Server",
+          href: "start_cpu.json",
+          params: { fullscreen: true }
         }]
+        if (session && session.url) {
+          arr.push({
+            icon: "fa-solid fa-rocket",
+            text: "Open Web UI",
+            href: session.url,
+            target: "_blank"
+          })
+        }
       } else {
-        arr = []
+        arr = [{
+          icon: "fa-solid fa-poweroff",
+          text: "Launch",
+          href: "start.json",
+          params: { fullscreen: true, run: true }
+        }, {
+          text: "Launch CPU Mode (Slow)",
+          href: "start_cpu.json",
+          params: { fullscreen: true, run: true }
+        }]
       }
 
       arr = arr.concat([{
-        when: "start.json",
-        off: "<i class='fa-solid fa-power-off'></i> Launch",
-        href: "start.json?fullscreen=true&run=true",
-      }, {
-        when: "start.json",
-        on: (session && session.url ? "<i class='fa-solid fa-rocket'></i> Open Web UI" : null),
-        href: (session && session.url ? session.url : null),
-        target: "_blank"
-      }, {
-        when: "start_cpu.json",
-        on: (session && session.url ? "<i class='fa-solid fa-rocket'></i> Open Web UI" : null),
-        href: (session && session.url ? session.url : null),
-        target: "_blank"
-      }, {
-        when: "start.json",
-        on: "<i class='fa-solid fa-desktop'></i> Server",
-        href: "start.json?fullscreen=true"
-      }, {
-        when: "start_cpu.json",
-        on: "<i class='fa-solid fa-desktop'></i> Server",
-        href: "start_cpu.json?fullscreen=true"
-      }, {
-        html: "<i class='fa-solid fa-rotate'></i> Update",
-        href: "update.json?fullscreen=true&run=true"
+        icon: "fa-solid fa-rotate",
+        text: "Update",
+        href: "update.json",
+        params: { fullscreen: true, run: true }
       }, {
         text: "Download Stable Video XT Model",
         icon: "fa-solid fa-download",
@@ -82,14 +97,65 @@ module.exports = {
           run: true,
           fullscreen: true
         }
-      }, {
-        text: "Launch in CPU Mode (Slow)",
-        href: "start_cpu.json",
-        params: {
-          run: true,
-          fullscreen: true
-        }
       }])
+
+//      arr = arr.concat([{
+//        when: "start.json",
+//        off: "<i class='fa-solid fa-power-off'></i> Launch",
+//        href: "start.json?fullscreen=true&run=true",
+//      }, {
+//        when: "start.json",
+//        on: (session && session.url ? "<i class='fa-solid fa-rocket'></i> Open Web UI" : null),
+//        href: (session && session.url ? session.url : null),
+//        target: "_blank"
+//      }, {
+//        when: "start_cpu.json",
+//        on: (session && session.url ? "<i class='fa-solid fa-rocket'></i> Open Web UI" : null),
+//        href: (session && session.url ? session.url : null),
+//        target: "_blank"
+//      }, {
+//        when: "start.json",
+//        on: "<i class='fa-solid fa-desktop'></i> Server",
+//        href: "start.json?fullscreen=true"
+//      }, {
+//        when: "start_cpu.json",
+//        on: "<i class='fa-solid fa-desktop'></i> Server",
+//        href: "start_cpu.json?fullscreen=true"
+//      }, {
+//        html: "<i class='fa-solid fa-rotate'></i> Update",
+//        href: "update.json?fullscreen=true&run=true"
+//      }, {
+//        text: "Download Stable Video XT Model",
+//        icon: "fa-solid fa-download",
+//        href: "download-svd-xt.json",
+//        params: {
+//          run: true,
+//          fullscreen: true
+//        }
+//      }, {
+//        text: "Download Stable Video Model",
+//        icon: "fa-solid fa-download",
+//        href: "download-svd.json",
+//        params: {
+//          run: true,
+//          fullscreen: true
+//        }
+//      }, {
+//        text: "Download LCM LoRA",
+//        icon: "fa-solid fa-download",
+//        href: "download-lcm-lora.json",
+//        params: {
+//          run: true,
+//          fullscreen: true
+//        }
+//      }, {
+//        text: "Launch in CPU Mode (Slow)",
+//        href: "start_cpu.json",
+//        params: {
+//          run: true,
+//          fullscreen: true
+//        }
+//      }])
       return arr
     } else {
       return [{
