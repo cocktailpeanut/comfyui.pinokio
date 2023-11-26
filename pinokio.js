@@ -92,6 +92,7 @@ module.exports = {
           fullscreen: true
         }
       }]
+      return arr
     } else {
       return [{
         html: '<i class="fa-solid fa-plug"></i> Install',
