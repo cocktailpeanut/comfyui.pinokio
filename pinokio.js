@@ -12,17 +12,30 @@ module.exports = {
     let installed = await exists(path.resolve(__dirname, "ComfyUI", "env"))
     if (installed) {
       let session = (await kernel.loader.load(path.resolve(__dirname, "session.json"))).resolved
-      return [{
-        when: "start.json",
-        on: "<i class='fa-solid fa-spin fa-circle-notch'></i> Running",
-        type: "label",
-        href: "start.json"
-      }, {
-        when: "start_cpu.json",
-        on: "<i class='fa-solid fa-spin fa-circle-notch'></i> Running",
-        type: "label",
-        href: "start_cpu.json"
-      }, {
+      let gpu_running = kernel.running(__dirname, "start.json")
+      let cpu_running = kernel.running(__dirname, "start_cpu.json")
+      let running = cpu_running || gpu_running
+
+
+      let arr = []
+
+      if (gpu_running) {
+        arr = [{
+          icon: "fa-solid fa-spin fa-circle-notch",
+          text: "Running",
+          href: "start.json"
+        }]
+      } else if (cpu_running) {
+        arr = [{
+          icon: "fa-solid fa-spin fa-circle-notch",
+          text: "Running",
+          href: "start_cpu.json"
+        }]
+      } else {
+        arr = []
+      }
+
+      arr = arr.concat([{
         when: "start.json",
         off: "<i class='fa-solid fa-power-off'></i> Launch",
         href: "start.json?fullscreen=true&run=true",
