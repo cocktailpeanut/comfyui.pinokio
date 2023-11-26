@@ -91,7 +91,7 @@ module.exports = {
           run: true,
           fullscreen: true
         }
-      }]
+      }])
       return arr
     } else {
       return [{
