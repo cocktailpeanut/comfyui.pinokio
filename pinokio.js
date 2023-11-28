@@ -16,7 +16,6 @@ module.exports = {
       let cpu_running = kernel.running(__dirname, "start_cpu.json")
       let running = cpu_running || gpu_running
 
-
       let arr
 
       if (gpu_running) {
@@ -99,71 +98,25 @@ module.exports = {
           fullscreen: true
         }
       }])
-
-//      arr = arr.concat([{
-//        when: "start.json",
-//        off: "<i class='fa-solid fa-power-off'></i> Launch",
-//        href: "start.json?fullscreen=true&run=true",
-//      }, {
-//        when: "start.json",
-//        on: (session && session.url ? "<i class='fa-solid fa-rocket'></i> Open Web UI" : null),
-//        href: (session && session.url ? session.url : null),
-//        target: "_blank"
-//      }, {
-//        when: "start_cpu.json",
-//        on: (session && session.url ? "<i class='fa-solid fa-rocket'></i> Open Web UI" : null),
-//        href: (session && session.url ? session.url : null),
-//        target: "_blank"
-//      }, {
-//        when: "start.json",
-//        on: "<i class='fa-solid fa-desktop'></i> Server",
-//        href: "start.json?fullscreen=true"
-//      }, {
-//        when: "start_cpu.json",
-//        on: "<i class='fa-solid fa-desktop'></i> Server",
-//        href: "start_cpu.json?fullscreen=true"
-//      }, {
-//        html: "<i class='fa-solid fa-rotate'></i> Update",
-//        href: "update.json?fullscreen=true&run=true"
-//      }, {
-//        text: "Download Stable Video XT Model",
-//        icon: "fa-solid fa-download",
-//        href: "download-svd-xt.json",
-//        params: {
-//          run: true,
-//          fullscreen: true
-//        }
-//      }, {
-//        text: "Download Stable Video Model",
-//        icon: "fa-solid fa-download",
-//        href: "download-svd.json",
-//        params: {
-//          run: true,
-//          fullscreen: true
-//        }
-//      }, {
-//        text: "Download LCM LoRA",
-//        icon: "fa-solid fa-download",
-//        href: "download-lcm-lora.json",
-//        params: {
-//          run: true,
-//          fullscreen: true
-//        }
-//      }, {
-//        text: "Launch in CPU Mode (Slow)",
-//        href: "start_cpu.json",
-//        params: {
-//          run: true,
-//          fullscreen: true
-//        }
-//      }])
       return arr
     } else {
-      return [{
-        html: '<i class="fa-solid fa-plug"></i> Install',
-        type: "link",
-        href: "install.json?run=true&fullscreen=true"
-      }]
+      if (kernel.platform === "darwin" && kernel.arch === "arm64") {
+        return [{
+          html: '<i class="fa-solid fa-plug"></i> Install with Stable Video Support (Takes around 20 minutes)',
+          type: "link",
+          href: "install_mac.json?run=true&fullscreen=true"
+        }, {
+          html: '<i class="fa-solid fa-plug"></i> Install without Stable Video (Quick)',
+          type: "link",
+          href: "install.json?run=true&fullscreen=true"
+        }]
+      } else {
+        return [{
+          html: '<i class="fa-solid fa-plug"></i> Install',
+          type: "link",
+          href: "install.json?run=true&fullscreen=true"
+        }]
+      }
     }
   }
 }
