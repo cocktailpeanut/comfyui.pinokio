@@ -74,6 +74,14 @@ module.exports = {
         href: "update.json",
         params: { fullscreen: true, run: true }
       }, {
+        text: "Download SDXL Turbo Model",
+        icon: "fa-solid fa-download",
+        href: "download-turbo.json",
+        params: {
+          run: true,
+          fullscreen: true
+        }
+      }, {
         text: "Download Stable Video XT Model",
         icon: "fa-solid fa-download",
         href: "download-svd-xt.json",
