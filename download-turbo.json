@@ -2,7 +2,7 @@
   "run": [{
     "method": "fs.download",
     "params": {
-      "uri": "https://huggingface.co/stabilityai/sdxl-turbo/blob/main/sd_xl_turbo_1.0_fp16.safetensors",
+      "uri": "https://huggingface.co/stabilityai/sdxl-turbo/resolve/main/sd_xl_turbo_1.0_fp16.safetensors?download=true",
       "dir": "ComfyUI/models/checkpoints"
     }
   }, {
